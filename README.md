@@ -126,3 +126,24 @@ GO
 <img width="1224" alt="2- OrdersForGenre" src="https://user-images.githubusercontent.com/105243448/178732695-1990e5ce-7259-4a16-9b75-fdff01a54700.png">
 
 
+### 4. View
+
+```
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE view [dbo].[BooksFullDetail] AS
+SELECT Books.Title as Book_Name, Genre.Genre as Genre, Authors.AuthorFirstName, 
+Authors.AuthorLastName, Publisher.Name as Publisher, Books.PageCount, Books.Price
+FROM Books INNER JOIN Genre ON Books.GenreID = Genre.GenreID
+INNER JOIN Authors ON Authors.AuthorID = Books.AuthorID
+INNER JOIN Publisher ON Books.PublisherID = Publisher.PublisherID
+
+GO
+```
+
+
+<img width="1008" alt="5- BooksFullDetail_Table" src="https://user-images.githubusercontent.com/105243448/178737631-5349cddb-5320-40e6-9005-57f62c5747fc.png">
+
