@@ -13,6 +13,33 @@
 
 We can easily add book to table with this stored procedur. 
 
+```
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[spAddNewBook]
+@AuthorID DECIMAL(3,0),
+@GenreID DECIMAL(2,0),
+@Title VARCHAR(50),
+@Price VARCHAR(50),
+@PageCount INT,
+@PublisherID INT
+
+AS 
+BEGIN
+INSERT into Books (AuthorID, GenreID, Title, Price, [PageCount], PublisherID )
+VALUES (@AuthorID, @GenreID, @Title, @Price, @PageCount, @PublisherID)
+
+
+SELECT * FROM Books
+
+END
+GO
+
+
+
+
 <img width="1199" alt="3- AddNewBook" src="https://user-images.githubusercontent.com/105243448/178730646-b232cc5c-cd6d-4bb1-a94b-73a45e0875b0.png">
 
 
@@ -69,6 +96,9 @@ GO
 
 
 ```
+
+.
+.
 
 <img width="1224" alt="2- OrdersForGenre" src="https://user-images.githubusercontent.com/105243448/178732695-1990e5ce-7259-4a16-9b75-fdff01a54700.png">
 
