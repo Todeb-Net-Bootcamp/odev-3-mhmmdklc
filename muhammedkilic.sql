@@ -3,7 +3,7 @@
 -- Bunu BookID'yi "[BookID] [int] identity" şeklinde tanımlayarak yapıyoruz.
 -- Tablolar oluştuktan sonra alt kısımda tanımlanan 
 -- 1 adet Stored Procedures, 1 adet Scalar Valued Function, 1 adet Table Valued Function, 1 adet View oluşuyor.
--- Kullanım şekilleri ve amaçlarını Read.me tarafında belirttim.
+-- Kullanım şekilleri ve amaçlarını Readme tarafında belirttim.
 
 
 
