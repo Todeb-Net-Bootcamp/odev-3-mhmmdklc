@@ -32,6 +32,35 @@ We create a complex table using data from 7 different tables with Func_OrdersFor
 
 ```
 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [dbo].[Func_OrdersForGenre]
+(
+@GenreID INT
+
+)
+RETURNS TABLE
+AS
+RETURN
+(
+SELECT  Books.Title as "Book Title", Genre.Genre, Authors.AuthorFirstName, Authors.AuthorLastName, Publisher.Name as "Publisher Name", Books.Price, Customers.FirstName as "Customer FirstName", Customers.LastName as "Customer LastName" , Customers.PhoneNumber as "Customer Phone Number" FROM Books
+INNER JOIN Authors ON Books.AuthorID = Authors.AuthorID
+INNER JOIN Genre ON Books.GenreID = Genre.GenreID
+INNER JOIN Publisher ON Publisher.PublisherID = Books.PublisherID
+INNER JOIN OrderDetails ON OrderDetails.BookID = Books.BookID
+INNER JOIN Orders ON Orders.OrderDetailID = OrderDetails.OrderDetailsID
+INNER JOIN Customers ON Customers.CustomerID = Orders.CustomerID
+WHERE Genre.GenreID = @GenreID 
+
+)
+GO
+
+
+```
+
 <img width="1224" alt="2- OrdersForGenre" src="https://user-images.githubusercontent.com/105243448/178732695-1990e5ce-7259-4a16-9b75-fdff01a54700.png">
 
 
