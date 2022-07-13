@@ -46,7 +46,9 @@ RETURNS TABLE
 AS
 RETURN
 (
-SELECT  Books.Title as "Book Title", Genre.Genre, Authors.AuthorFirstName, Authors.AuthorLastName, Publisher.Name as "Publisher Name", Books.Price, Customers.FirstName as "Customer FirstName", Customers.LastName as "Customer LastName" , Customers.PhoneNumber as "Customer Phone Number" FROM Books
+SELECT  Books.Title as "Book Title", Genre.Genre, Authors.AuthorFirstName, Authors.AuthorLastName, 
+Publisher.Name as "Publisher Name", Books.Price, Customers.FirstName as "Customer FirstName", 
+Customers.LastName as "Customer LastName" , Customers.PhoneNumber as "Customer Phone Number" FROM Books
 INNER JOIN Authors ON Books.AuthorID = Authors.AuthorID
 INNER JOIN Genre ON Books.GenreID = Genre.GenreID
 INNER JOIN Publisher ON Publisher.PublisherID = Books.PublisherID
