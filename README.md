@@ -49,6 +49,30 @@ We add the discounted price column to our table with this function,
 We determine the discount rate. 
 The BooksFullDetail table is a view we created.
 
+```
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE FUNCTION [dbo].[Func_CalculatePriceWithDiscount]
+(
+    @Price DECIMAL,
+    @DiscountRate DECIMAL
+)
+RETURNS DECIMAL
+AS 
+BEGIN
+
+DECLARE @calculatedAmount DECIMAL;
+SET @calculatedAmount = @Price -(@Price * @DiscountRate / 100);
+
+RETURN @calculatedAmount;
+END
+GO
+
+
+```
 
 <img width="1105" alt="1- CalculatePriseWithDiscount" src="https://user-images.githubusercontent.com/105243448/178731640-2fdaeba9-0b69-43ba-b469-d19bab8b1691.png">
 
@@ -97,8 +121,7 @@ GO
 
 ```
 
-.
-.
+
 
 <img width="1224" alt="2- OrdersForGenre" src="https://user-images.githubusercontent.com/105243448/178732695-1990e5ce-7259-4a16-9b75-fdff01a54700.png">
 
